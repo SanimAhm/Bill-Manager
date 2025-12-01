@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+{% load humanize %}
+
+{% load static %}
+
+{% block link %}
+<link rel="stylesheet" href="{% static 'css/home.css' %}"/>
+{% endblock %}
+
+{% block content %}
+    <h2 style="margin: 20px; text-align: center; background-color: lightblue; padding: 5px;">Bill Summary</h2>
+    <div class="container">
+        <div>
+            <table class="summary-table">
+                <tr>
+                    <th>No of Pending Bills</th>
+                    <th>Value of Pending Bills</th>
+                </tr>
+                <tr>
+                    <td> {{ pending_count }} </td>
+                    <td>{{ pending_value | floatformat:0| intcomma }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="search-container" style="margin-bottom: 15px;">
+            <form class="d-flex" role="search" method="get" style="width: 30%; margin-left:40px;">
+                <input class="form-control me-2" type="search" name="q" 
+                    placeholder="Search by Supplier Name" value="{{ search_query }}" 
+                    aria-label="Search"/>
+                <button class="btn btn-outline-success" type="submit" style="margin-right:10px;">Search</button>
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary">Reset</a>
+            </form>
+        </div>
+
+        <div class="detail-table">
+            <table class="detail-table">
+                <tr>
+                    <th>Bill Recept Date</th>
+                    <th>Supplier Name</th>
+                    <th>Gross Value</th>
+                    <th>Net Payment</th>
+                    <th>Payment Date</th>
+                    <th>Status</th>
+                </tr>
+                {% for data in bill%}
+                <tr>
+                    <td>{{ data.receive_date |date:"d-m-Y" }}</td>
+                    <td><a style=" text-decoration: none; color: black;" href="#">{{ data.supplier_name }}</a></td>
+                    <td>{{ data.bill_value | floatformat:0| intcomma }}</td>
+                    <td>{{ data.net_payment | floatformat:0| intcomma }}</td>
+                    <td>{{ data.payment_date |date:"d-m-Y" }}</td>
+                    <td>{{ data.status }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
