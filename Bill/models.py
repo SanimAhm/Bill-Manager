@@ -11,7 +11,8 @@ class Bill(models.Model):
     ]
     UNIT_CHOICE = [
         ('Flour Mill', 'Flour Mill'),
-        ('Drinking Water', 'Drinking Water')
+        ('Drinking Water', 'Drinking Water'),
+        ('FM & DW', 'FM & DW')
     ]
     
     receive_date = models.DateField(null=False, blank=False)

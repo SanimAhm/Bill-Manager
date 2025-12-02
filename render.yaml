@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: django_project
+    env: python
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "gunicorn django_project.wsgi:application"
+    runtime: python3
+    region: oregon
+    branch: main
+    plan: free
+    envVars:
+      - key: DJANGO_SETTINGS_MODULE
+        value: django_project.settings

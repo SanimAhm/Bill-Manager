@@ -28,11 +28,14 @@
 }
 
 .detail-table {
-    margin-left: 20px;
-    margin-bottom: 20px;
+    display: inline-block;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 500px;
+    max-height: 500px;    /* only this div scrolls */
+    padding: 0;
+    margin-left: 40px;
+    margin-top: 20px;
+    table-layout: fixed;            /* IMPORTANT: removes layout overflow */
 }
 
 .detail-table th {
