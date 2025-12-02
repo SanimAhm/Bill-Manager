@@ -1,0 +1,63 @@
+.supp_name {
+    text-decoration: none;
+}
+
+.summary-table {
+    margin-left: 40px;
+    margin-bottom: 20px;
+
+}
+
+.summary-table th {
+    text-align: center;
+    background-color: lightblue;
+    border: 1px solid grey;
+    padding: 5px;
+    
+}
+
+.summary-table tr {
+    text-align: right;
+    border: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.summary-table td {
+    border-right: 1px solid grey;
+    padding: 5px;
+}
+
+.detail-table {
+    display: inline-block;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 500px;    /* only this div scrolls */
+    padding: 0;
+    margin-left: 40px;
+    margin-top: 20px;
+    table-layout: fixed;            /* IMPORTANT: removes layout overflow */
+}
+
+.detail-table th {
+    text-align: center;
+    background-color: lightblue;
+    border: 1px solid grey;
+    padding: 5px;
+    position: sticky;
+    top: 0;
+}
+
+.detail-table tr {
+    text-align: right;
+    border: 1px solid grey;
+    border-right: 1px solid grey;
+}
+
+.detail-table td {
+    border-right: 1px solid grey;
+    padding: 5px;
+}
+
+.container {
+    display: inline;
+}
