@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, DetailView
 from .models import *
 from django.urls import reverse_lazy
 from .forms import *
@@ -38,6 +38,12 @@ class BillView(ListView):
         context['pending_value'] = pending_bills.aggregate(total_value=Sum('bill_value'))['total_value'] or 0
         context['search_query'] = self.request.GET.get('q', '')
         return context
+
+class BillDetailView(DetailView):
+    model = Bill
+    template_name = "bill_details.html"
+    context_object_name = 'bill'
+    
 
 def success(request):
     return render(request, "success.html")
