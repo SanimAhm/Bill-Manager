@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 # Create your models here.
 class Bill(models.Model):
@@ -33,3 +34,7 @@ class Bill(models.Model):
         
     def __str__(self):
         return self.supplier_name
+    
+    def get_absolute_url(self):
+        return reverse("bill_detail", kwargs={"pk": self.pk})
+    

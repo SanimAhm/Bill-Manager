@@ -42,7 +42,7 @@
                 {% for data in bill%}
                 <tr>
                     <td>{{ data.receive_date |date:"d-m-Y" }}</td>
-                    <td style="text-align: left;"><a style=" text-decoration: none; color: black;" href="#">{{ data.supplier_name }}</a></td>
+                    <td style="text-align: left;"><a style=" text-decoration: none; color:	#253a53; font-weight:bold;" href="{{ data.get_absolute_url }}">{{ data.supplier_name }}</a></td>
                     <td>{{ data.bill_value | floatformat:0| intcomma }}</td>
                     <td>{{ data.net_payment | floatformat:0| intcomma }}</td>
                     <td>{{ data.payment_date |date:"d-m-Y" }}</td>

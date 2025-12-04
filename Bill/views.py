@@ -41,8 +41,7 @@ class BillView(ListView):
 
 class BillDetailView(DetailView):
     model = Bill
-    template_name = "bill_details.html"
-    context_object_name = 'bill'
+    template_name = "bill_detail.html"
     
 
 def success(request):
