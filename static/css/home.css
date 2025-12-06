@@ -1,19 +1,15 @@
+.container {
+    width: 100%;
+}
+
 .supp_name {
     text-decoration: none;
 }
 
 .summary-table {
-    margin-left: 40px;
-    margin-bottom: 20px;
-
-}
-
-.summary-table th {
-    text-align: center;
-    background-color: lightblue;
-    border: 1px solid grey;
-    padding: 5px;
-    
+    margin-left: 2%;
+    margin-bottom: 3%;
+    margin-top: 2%;
 }
 
 .summary-table tr {
@@ -24,6 +20,19 @@
 
 .summary-table td {
     border-right: 1px solid grey;
+    padding: 1%;
+}
+
+.summary-header {
+    background: #0F292F;
+    color: #D1FAE5;
+    border: 1px solid grey;
+    border-right: 1px solid grey;
+    padding: 4px;
+}
+
+.summary-header th {
+    border-right: 1px solid grey;
     padding: 5px;
 }
 
@@ -31,20 +40,20 @@
     display: inline-block;
     overflow-y: auto;
     overflow-x: hidden;
-    max-height: 500px;    /* only this div scrolls */
-    padding: 0;
-    margin-left: 40px;
-    margin-top: 20px;
-    table-layout: fixed;            /* IMPORTANT: removes layout overflow */
+    max-height: 400px;
+    margin-left: 2%;
+    margin-right: 1%;
+    
 }
 
 .detail-table th {
     text-align: center;
-    background-color: lightblue;
+    background: #0F292F; color: #D1FAE5;
+    padding: 1%;
     border: 1px solid grey;
-    padding: 5px;
     position: sticky;
     top: 0;
+    margin-right: 1%;
 }
 
 .detail-table tr {
@@ -55,7 +64,7 @@
 
 .detail-table td {
     border-right: 1px solid grey;
-    padding: 5px;
+    padding: 1px;
 }
 
 .container {

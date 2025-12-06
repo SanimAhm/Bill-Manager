@@ -8,11 +8,11 @@
 {% endblock %}
 
 {% block content %}
-    <h2 style="margin: 20px; text-align: center; background-color: lightblue; padding: 5px;">Bill Summary</h2>
+    <h2 style="margin: 1%; text-align: center; background: #0F292F; color: #D1FAE5; padding: 1%;">Bill Summary</h2>
     <div class="container">
         <div>
             <table class="summary-table">
-                <tr>
+                <tr class="summary-header">
                     <th>No of Pending Bills</th>
                     <th>Value of Pending Bills</th>
                 </tr>
@@ -22,31 +22,27 @@
                 </tr>
             </table>
 
-            <form class="d-flex" role="search" method="get" style="width: 30%; margin-left:40px;">
+            <form class="d-flex" role="search" method="get" style="width: 60%; margin-left:2%; margin-bottom: 2%;">
                 <input class="form-control me-2" type="search" name="q" 
                     placeholder="Search by Supplier Name" value="{{ search_query }}" 
                     aria-label="Search"/>
-                <button class="btn btn-outline-success" type="submit" style="margin-right:10px;">Search</button>
-                <a href="{% url 'home' %}" class="btn btn-outline-secondary">Reset</a>
+                <button class="btn btn-outline-success" type="submit" style="margin-right:2%;">Search</button>
+                <a href="{% url 'home' %}" class="btn btn-outline-secondary" style="margin-right:2%;">Reset</a>
             </form>
 
             <table class="detail-table">
                 <tr>
                     <th>Bill Recept Date</th>
                     <th>Supplier Name</th>
-                    <th>Gross Value</th>
                     <th>Net Payment</th>
-                    <th>Payment Date</th>
                     <th>Status</th>
                 </tr>
                 {% for data in bill%}
                 <tr>
-                    <td>{{ data.receive_date |date:"d-m-Y" }}</td>
-                    <td style="text-align: left;"><a style=" text-decoration: none; color:	#253a53; font-weight:bold;" href="{{ data.get_absolute_url }}">{{ data.supplier_name }}</a></td>
-                    <td>{{ data.bill_value | floatformat:0| intcomma }}</td>
+                    <td style="text-align: center">{{ data.receive_date |date:"d-m-Y" }}</td>
+                    <td style="text-align: left;"><a style=" text-decoration: none; color:	#9CDCFE; font-weight:bold; padding: 2%;" href="{{ data.get_absolute_url }}">{{ data.supplier_name }}</a></td>
                     <td>{{ data.net_payment | floatformat:0| intcomma }}</td>
-                    <td>{{ data.payment_date |date:"d-m-Y" }}</td>
-                    <td>{{ data.status }}</td>
+                    <td style="text-align: center">{{ data.status }}</td>
                 </tr>
                 {% endfor %}
             </table>
